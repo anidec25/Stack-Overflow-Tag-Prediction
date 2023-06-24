@@ -12,9 +12,9 @@ You can download the data from: https://www.kaggle.com/c/facebook-recruiting-iii
 
 ## Useful Resources:
 
-Youtube: https://youtu.be/nNDqbUhtIRg 
-Research paper: https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tagging-1.pdf 
-Research paper: https://dl.acm.org/citation.cfm?id=2660970&dl=ACM&coll=DL
+- Youtube: https://youtu.be/nNDqbUhtIRg 
+- Research paper: https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tagging-1.pdf 
+- Research paper: https://dl.acm.org/citation.cfm?id=2660970&dl=ACM&coll=DL
 
 ### Phase 1: Data Collection and Data Cleaning:
 
