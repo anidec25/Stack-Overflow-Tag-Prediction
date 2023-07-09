@@ -49,7 +49,7 @@ Deploy the Model In any of the cloud platforms(AWS, GCP, etc)
 Showcase a working demo of your system that is easy for an end user to interact with and use.
 
 
-Guidelines:
+### Guidelines:
 the objectives the mentioned above are to show you a glimpse of what are the possible tasks that can be performed but the whole/excat tasks, we will be discussing the appropriate tasks that can be performed during our first call.
 Before we start our projects please go through the data set try downloading it and if time permits please check out the features and their meaning
 Please revise concepts of pandas, numpy, and matplotlib and any other python library
