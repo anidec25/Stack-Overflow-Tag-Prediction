@@ -40,8 +40,8 @@ tfidf = pickle.load(open('models/vectorizer.pkl','rb'))
 
 # Load and display the image
 image = Image.open('./images/orange.png')
-# new_image = image.resize((680, 200))
-st.image(image,caption='')
+new_image = image.resize((1000, 325))
+st.image(new_image,caption='')
 st.title('Stack Overflow Tag Prediction')
 
 title = st.text_input('Enter the title of the Question')
@@ -69,35 +69,43 @@ def pre_process(question):
 
     return question
 
-if st.button('Predict Tags'):
+# Divide the page into five columns, leaving the third column blank for the button
+col1, col2, col3 = st.columns([1,0.5,1])
 
-    preprocessed = pre_process(question)
+with col1:
+    pass
+with col3:
+    pass
+with col2:
+    if st.button('Predict Tags'):
 
-    preprocessed = [word for word in preprocessed.split()]
+        preprocessed = pre_process(question)
 
-    vector_input = tfidf.transform(preprocessed)
+        preprocessed = [word for word in preprocessed.split()]
 
-    y_pred = model.predict(vector_input)
+        vector_input = tfidf.transform(preprocessed)
 
-    output_list = ['c#','java','php','javascript','android','jquery','c++','python','iphone','asp.net','mysql','html','.net','ios','objective-c','sql','css','linux','ruby-on-rails','windows']
+        y_pred = model.predict(vector_input)
 
-    freq_dict = {}
-    words = np.where(y_pred.toarray() == 1)
+        output_list = ['c#','java','php','javascript','android','jquery','c++','python','iphone','asp.net','mysql','html','.net','ios','objective-c','sql','css','linux','ruby-on-rails','windows']
 
-    for items in words:
-        if output_list[items[0]] in freq_dict:
-            freq_dict[output_list[items[0]]] += 1
-        else: 
-            freq_dict[output_list[items[0]]] = 1
-        
-    sorted_items = sorted(freq_dict.items(), key=lambda x: x[1], reverse=True)
+        freq_dict = {}
+        words = np.where(y_pred.toarray() == 1)
 
-    # Get the top 3 elements from the sorted list
-    top_3_elements = sorted_items[:3]
+        for items in words:
+            if output_list[items[0]] in freq_dict:
+                freq_dict[output_list[items[0]]] += 1
+            else: 
+                freq_dict[output_list[items[0]]] = 1
+            
+        sorted_items = sorted(freq_dict.items(), key=lambda x: x[1], reverse=True)
 
-    # # Print the top 3 elements
-    for element,count in top_3_elements:
-        st.header(element)
+        # Get the top 3 elements from the sorted list
+        top_3_elements = sorted_items[:3]
+
+        # # Print the top 3 elements
+        for element,count in top_3_elements:
+            st.text(element)
 
 
 
