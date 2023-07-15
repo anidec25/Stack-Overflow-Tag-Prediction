@@ -39,22 +39,32 @@ tfidf = pickle.load(open('models/vectorizer.pkl','rb'))
 image = Image.open('./images/orange.png')
 new_image = image.resize((1000, 325))
 st.image(new_image,caption='')
+
+# Title of the page
 st.title('Stack Overflow Tag Prediction')
 
+# User prompt
 title = st.text_input('Enter the title of the Question')
 title=title.encode('utf-8')
 post = st.text_area('Enter the post')
 
+# Concatinating title and post as question.
 question = str(title) + " " + str(post)
 
-# st.write('Post: ',question)
 
 def striphtml(data):
+    """
+    Function to clean the html part of the body
+    """
     cleanr = re.compile('<.*?>')
     cleantext = re.sub(cleanr,' ',str(data))
     return cleantext
 
 def pre_process(question):
+    """
+    Function to pre-process the text data: 
+    Action performed: removing code, striping html, lower, stemming, stopwords removal.
+    """
 
     question=re.sub('<code>(.*?)</code>', '', question, flags=re.MULTILINE|re.DOTALL)
     question=striphtml(question.encode('utf-8'))
@@ -65,6 +75,7 @@ def pre_process(question):
     question=' '.join(str(stemmer.stem(j)) for j in words if j not in stop_words and (len(j)!=1 or j=='c'))
 
     return question
+
 
 preprocessed = pre_process(question)
 
