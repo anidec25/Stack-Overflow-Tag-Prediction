@@ -38,8 +38,7 @@ page_icon = Image.open('./images/logo.png')
 #Page config setup
 st.set_page_config(
 page_title="Stackoverflow Tag Prediction",
-page_icon=page_icon,
-layout="wide"
+page_icon=page_icon
 )
 
 
