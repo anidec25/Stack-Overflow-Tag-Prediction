@@ -81,39 +81,41 @@ def pre_process(question):
 
     return question
 
-
-preprocessed = pre_process(question)
-
-preprocessed = [word for word in preprocessed.split()]
-
-vector_input = tfidf.transform(preprocessed)
-
-y_pred = model.predict(vector_input)
-
 output_list = ['c#','java','php','javascript','android','jquery','c++','python','iphone','asp.net','mysql','html','.net','ios','objective-c','sql','css','linux','ruby-on-rails','windows']
 
-freq_dict = {}
-words = np.where(y_pred.toarray() == 1)
-
-
-for items in words:
-    if len(items) == 0:
-        result = 'No Tags'
-    else:
-        if output_list[items[0]] in freq_dict:
-            freq_dict[output_list[items[0]]] += 1
-        else: 
-            freq_dict[output_list[items[0]]] = 1
-
-
-
-sorted_items = sorted(freq_dict.items(), key=lambda x: x[1], reverse=True)
-# Get the top 3 elements from the sorted list
-top_3_elements = sorted_items[:3]
 
 
 if st.button('Predict Tags'):
-    
+
+    preprocessed = pre_process(question)
+
+    preprocessed = [word for word in preprocessed.split()]
+
+    vector_input = tfidf.transform(preprocessed)
+
+    y_pred = model.predict(vector_input)
+
+
+
+    freq_dict = {}
+    words = np.where(y_pred.toarray() == 1)
+
+
+    for items in words:
+        if len(items) == 0:
+            result = 'No Tags'
+        else:
+            if output_list[items[0]] in freq_dict:
+                freq_dict[output_list[items[0]]] += 1
+            else: 
+                freq_dict[output_list[items[0]]] = 1
+
+
+
+    sorted_items = sorted(freq_dict.items(), key=lambda x: x[1], reverse=True)
+    # Get the top 3 elements from the sorted list
+    top_3_elements = sorted_items[:3]
+        
     if len(freq_dict) == 0: 
         st.write(result)
     else:
