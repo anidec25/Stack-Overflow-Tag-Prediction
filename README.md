@@ -1,9 +1,6 @@
 # Stack-Overflow-Tag-Prediction
 
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/anidec25/Stack-Overflow-Tag-Prediction"> 
-<img alt="GitHub watchers" src="https://img.shields.io/github/watchers/anidec25/Stack-Overflow-Tag-Prediction">
-<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/anidec25/Stack-Overflow-Tag-Prediction">
-<img alt="GitHub forks" src="https://img.shields.io/github/forks/anidec25/Stack-Overflow-Tag-Prediction"> 
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/anidec25/Stack-Overflow-Tag-Prediction"><img alt="GitHub watchers" src="https://img.shields.io/github/watchers/anidec25/Stack-Overflow-Tag-Prediction"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/anidec25/Stack-Overflow-Tag-Prediction"><img alt="GitHub forks" src="https://img.shields.io/github/forks/anidec25/Stack-Overflow-Tag-Prediction"> 
 
 Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge, and build their careers.
 
