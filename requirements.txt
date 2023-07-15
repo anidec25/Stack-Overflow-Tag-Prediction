@@ -1,5 +1,5 @@
 pandas==2.0.2
-numpy==1.3.2
+numpy==1.23.2
 matplotlib==3.7.1
 pickle
 nltk
