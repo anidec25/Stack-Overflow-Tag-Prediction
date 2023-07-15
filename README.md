@@ -9,6 +9,9 @@ Stack Overflow is something that every programmer uses one way or another. Each 
 ## Problem Statement
 Suggest the tags based on the content that was there in the question posted on Stackoverflow.
 
+## Blog
+### Link: https://aryandec25.notion.site/Stackoverflow-tag-prediction-2533e3314efa424f92a3f9a9ae5813a9?pvs=4
+
 ## Steps to run the script in your local system: 
 1. Clone the repository.
 2. Install the dependecies from the `requirements.txt` file. To install the dependecies run the below command.
