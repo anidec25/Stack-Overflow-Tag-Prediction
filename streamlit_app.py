@@ -10,6 +10,7 @@ from PIL import Image
 import nltk
 
 nltk.download('stopwords')
+nltk.download('punkt')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem.snowball import SnowballStemmer
