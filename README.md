@@ -20,7 +20,7 @@ Suggest the tags based on the content that was there in the question posted on S
     streamlit run app.py
     ```
 ## Dashboard (Streamlit App)
-#### Link: https://anidec25-spotify-skip-prediction-spotify-2xr81h.streamlit.app/
+#### Link: https://stack-overflow-tag-prediction.streamlit.app/
 ![alt text](./images/finalview_receipt.png)
 
 ## About the data:
