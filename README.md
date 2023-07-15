@@ -9,6 +9,20 @@ Stack Overflow is something that every programmer uses one way or another. Each 
 ## Problem Statement
 Suggest the tags based on the content that was there in the question posted on Stackoverflow.
 
+## Steps to run the script in your local system: 
+1. Clone the repository.
+2. Install the dependecies from the `requirements.txt` file. To install the dependecies run the below command.
+    ```python
+    pip install -r requirements.txt
+     ```
+3. Run the below command to activate the application.
+    ```python
+    streamlit run app.py
+    ```
+## Dashboard (Streamlit App)
+#### Link: https://anidec25-spotify-skip-prediction-spotify-2xr81h.streamlit.app/
+![alt text](./images/finalview_receipt.png)
+
 ## About the data:
 You can download the data from: https://www.kaggle.com/c/facebook-recruiting-iii-keyword-extraction/data
 
