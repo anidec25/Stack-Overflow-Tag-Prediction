@@ -1,9 +1,6 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 import pickle
-import webbrowser
 import streamlit as st
 import string
 import re
@@ -69,43 +66,63 @@ def pre_process(question):
 
     return question
 
-# Divide the page into five columns, leaving the third column blank for the button
-col1, col2, col3 = st.columns([1,0.5,1])
+preprocessed = pre_process(question)
 
-with col1:
-    pass
-with col3:
-    pass
-with col2:
-    if st.button('Predict Tags'):
+preprocessed = [word for word in preprocessed.split()]
 
-        preprocessed = pre_process(question)
+vector_input = tfidf.transform(preprocessed)
 
-        preprocessed = [word for word in preprocessed.split()]
+y_pred = model.predict(vector_input)
 
-        vector_input = tfidf.transform(preprocessed)
+output_list = ['c#','java','php','javascript','android','jquery','c++','python','iphone','asp.net','mysql','html','.net','ios','objective-c','sql','css','linux','ruby-on-rails','windows']
 
-        y_pred = model.predict(vector_input)
+freq_dict = {}
+words = np.where(y_pred.toarray() == 1)
 
-        output_list = ['c#','java','php','javascript','android','jquery','c++','python','iphone','asp.net','mysql','html','.net','ios','objective-c','sql','css','linux','ruby-on-rails','windows']
 
-        freq_dict = {}
-        words = np.where(y_pred.toarray() == 1)
+for items in words:
+    if len(items) == 0:
+        result = 'No Tags'
+    else:
+        if output_list[items[0]] in freq_dict:
+            freq_dict[output_list[items[0]]] += 1
+        else: 
+            freq_dict[output_list[items[0]]] = 1
 
-        for items in words:
-            if output_list[items[0]] in freq_dict:
-                freq_dict[output_list[items[0]]] += 1
-            else: 
-                freq_dict[output_list[items[0]]] = 1
-            
-        sorted_items = sorted(freq_dict.items(), key=lambda x: x[1], reverse=True)
 
-        # Get the top 3 elements from the sorted list
-        top_3_elements = sorted_items[:3]
 
-        # # Print the top 3 elements
-        for element,count in top_3_elements:
-            st.text(element)
+sorted_items = sorted(freq_dict.items(), key=lambda x: x[1], reverse=True)
+# Get the top 3 elements from the sorted list
+top_3_elements = sorted_items[:3]
+
+
+if st.button('Predict Tags'):
+    
+    if len(freq_dict) == 0: 
+        st.write(result)
+    else:
+        col1, col2, col3 = st.columns([1,1,1])
+
+        with col1:
+            st.code(top_3_elements[0][0])
+
+        with col2:
+            if len(top_3_elements) > 1:
+                st.code(top_3_elements[1][0])
+            else:
+                pass
+
+        with col3:
+            if len(top_3_elements) > 2:
+                st.code(top_3_elements[2][0])
+            else:
+                pass
+
+    
+    
+    
+
+        
 
 
 
