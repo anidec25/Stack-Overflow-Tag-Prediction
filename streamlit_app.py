@@ -6,11 +6,11 @@ import string
 import re
 from PIL import Image
 
+import nltk
 from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
 from nltk.stem.snowball import SnowballStemmer
 
-import nltk
+
 
 
 import warnings
