@@ -24,7 +24,7 @@ Suggest the tags based on the content that was there in the question posted on S
     ```
 ## Dashboard (Streamlit App)
 #### Link: https://stack-overflow-tag-prediction.streamlit.app/
-![alt text](./images/finalview_receipt.png)
+https://github.com/anidec25/Stack-Overflow-Tag-Prediction/assets/91803610/95c41db7-3992-47ae-ad83-8352fa2c3db4
 
 ## About the data:
 You can download the data from: https://www.kaggle.com/c/facebook-recruiting-iii-keyword-extraction/data
