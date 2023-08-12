@@ -20,7 +20,7 @@ Suggest the tags based on the content that was there in the question posted on S
      ```
 3. Run the below command to activate the application.
     ```python
-    streamlit run app.py
+    streamlit run streamlit_app.py
     ```
 ## Dashboard (Streamlit App)
 #### Link: https://stack-overflow-tag-prediction.streamlit.app/
